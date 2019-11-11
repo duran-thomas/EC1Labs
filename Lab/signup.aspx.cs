@@ -22,7 +22,7 @@ namespace Lab
             Session["DoB"] = txtDateOfBirth.Text;
             Session["phoneNumber"] = txtPhoneNumber;
             Session["password"] = txtPassword.Text;
-            Response.Redirect("WebForm1.aspx");
+            Response.Redirect("index.aspx");
         }
     }
 }

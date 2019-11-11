@@ -6,90 +6,96 @@
 
        <%-- <div align="center">--%>
 
-            <div id="wrap" align="left">
+               <div align="left">
 
-                <ul>
-                    <li id="1">
-                        <img src="./images/cyber.jpeg" class="items" height="100" alt="" />
+        <div id="wrap" align="left">
 
-                        <br />
-                        <div><span class="name">Learn Java: Price</span>: $<span class="price">800</span> </div>
-                    </li>
-                    <li id="2">
-                        <img src="5.png" class="items" height="100" alt="" />
+            <ul>
+                <li id="1">
+                    <img src="a1.png" class="items" height="100" alt="" />
 
-                        <br clear="all" />
-                        <div><span class="name">Learn HTML </span>: $<span class="price">500 </span></div>
-                    </li>
-                    <li id="3">
-                        <img src="1.png" class="items" height="100" alt="" />
+                    <br/>
+                    <div><span class="name">Learn Java: Price</span>: $<span class="price">800</span> </div>
+                </li>
+                <li id="2">
+                    <img src="5.png" class="items" height="100" alt="" />
 
-                        <br clear="all" />
-                        <div><span class="name">Learn Android </span>: $<span class="price">450</span></div>
-                    </li>
+                    <br/>
+                    <div><span class="name">Learn HTML </span>: $<span class="price">500 </span></div>
+                </li>
+                <li id="3">
+                    <img src="1.png" class="items" height="100" alt="" />
 
-                    <li id="4">
-                        <img src="6.png" class="items" height="100" alt="" />
+                    <br/>
+                    <div><span class="name">Learn Android </span>: $<span class="price">450</span></div>
+                </li>
 
-                        <br clear="all" />
-                        <div><span class="name">Learn SVG </span>: $<span class="price">1200 </span></div>
-                    </li>
-                    <li id="5">
-                        <img src="7.png" class="items" height="100" alt="" />
+                <li id="4">
+                    <img src="6.png" class="items" height="100" alt="" />
 
-                        <br clear="all" />
-                        <div><span class="name">Learn Bootstrap</span>: $<span class="price">65</span></div>
-                    </li>
+                    <br clear="all" />
+                    <div><span class="name">Learn SVG </span>: $<span class="price">1200 </span></div>
+                </li>
+                <li id="5">
+                    <img src="7.png" class="items" height="100" alt="" />
 
-                    <li id="6">
-                        <img src="5.png" class="items" height="100" alt="" />
+                    <br clear="all" />
+                    <div><span class="name">Learn Bootstrap</span>: $<span class="price">65</span></div>
+                </li>
 
-                        <br clear="all" />
-                        <div><span class="name">Learn HTML</span>: $<span class="price">800</span> </div>
-                    </li>
+                <li id="6">
+                    <img src="5.png" class="items" height="100" alt="" />
 
-                    <li id="7">
-                        <img src="7.png" class="items" height="100" alt="" />
+                    <br clear="all" />
+                    <div><span class="name">Learn HTML</span>: $<span class="price">800</span> </div>
+                </li>
 
-                        <br clear="all" />
-                        <div><span class="name">Learn Bootstrap </span>: $<span class="price">45</span></div>
-                    </li>
-                    <li id="8">
-                        <img src="6.png" class="items" height="100" alt="" />
+                <li id="7">
+                    <img src="7.png" class="items" height="100" alt="" />
 
-                        <br clear="all" />
-                        <div><span class="name">Learn SVG</span>: $<span class="price">900 </span></div>
-                    </li>
+                    <br clear="all" />
+                    <div><span class="name">Learn Bootstrap </span>: $<span class="price">45</span></div>
+                </li>
+                <li id="8">
+                    <img src="6.png" class="items" height="100" alt="" />
 
-                    <li id="9">
-                        <img src="8.png" class="items" height="100" alt="" />
+                    <br clear="all" />
+                    <div><span class="name">Learn SVG</span>: $<span class="price">900 </span></div>
+                </li>
 
-                        <br clear="all" />
-                        <div><span class="name">Learn Angular Js </span>: $<span class="price">20</span></div>
-                    </li>
+                <li id="9">
+                    <img src="8.png" class="items" height="100" alt="" />
 
-                </ul>
+                    <br clear="all" />
+                    <div><span class="name">Learn Angular Js </span>: $<span class="price">20</span></div>
+                </li>
 
-                <br />
+            </ul>
 
-            </div>
-            <div id="left_bar"">
+            <br clear="all" />
 
-                <form action="#" id="cart_form" name="cart_form">
 
-                    <div class="cart-info"></div>
 
-                    <div class="cart-total">
+        </div>
 
-                        <b>Total Charges:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b> $<span>0</span>
+        <div id="left_bar">
 
-                        <input type="hidden" name="total-hidden-charges" id="total-hidden-charges" value="0" />
-                    </div>
+            <form action="#" id="cart_form" name="cart_form">
 
-                    <button type="submit" id="Submit">CheckOut</button>
+                <div class="cart-info"></div>
 
-                </form>
+                <div class="cart-total">
 
-            </div>
-        <%--</div>--%>
+                    <b>Total Charges:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b> $<span>0</span>
+
+                    <input type="hidden" name="total-hidden-charges" id="total-hidden-charges" value="0" />
+                </div>
+
+                <button type="submit" id="Submit">CheckOut</button>
+
+            </form>
+
+        </div>
+
+    </div>
 </asp:Content>
