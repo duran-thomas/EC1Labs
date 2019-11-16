@@ -39,6 +39,34 @@
                 args.IsValid = false;
             }
         }
+        function validatePassword() {
+            var str = document.getElementById('<%=txtPassword.ClientID %>').value;
+
+            if (str.length < 8) {
+                document.getElementById("msg").innerHTML = "Password Length Must Over 8 Characters";
+                document.getElementById('msg').style.color = "Red";
+
+            } else if (str.search(/[0-9]/) == -1) {
+                document.getElementById('msg').innerHTML = "Must Have Atleast 1 Number";
+                document.getElementById('msg').style.color = "Red";
+
+            } else if (str.search(/[a-z]/) == -1) {
+                document.getElementById('msg').innerHTML = "Must Have Atleast 1 Lower Case Letter";
+                document.getElementById('msg').style.color = "Red";
+
+            } else if (str.search(/[A-Z]/) == -1) {
+                document.getElementById('msg').innerHTML = "Must Have Atleast 1 Upper Case Letter";
+                document.getElementById('msg').style.color = "Red";
+
+            } else if (str.search(/[!\@\#\$\%\^\&\(\)\_\.\,\;\:]/) == -1) {
+                document.getElementById('msg').innerHTML = "Must Have Atleast 1 Special Character";
+                document.getElementById('msg').style.color = "Red";
+
+            } else {
+                document.getElementById('msg').innerHTML = "Excellent";
+                document.getElementById('msg').style.color = "Green";
+            }
+        }
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -103,10 +131,11 @@
 
                         <div class="form-group">
                             <asp:Label ID="lblPassword" runat="server" Text="Password"></asp:Label>
+                            <span id="msg"></span>
                             <asp:RequiredFieldValidator ID="RequiredFieldValidator6" CssClass="text-danger" runat="server" ErrorMessage="Required *" ControlToValidate="txtPassword"></asp:RequiredFieldValidator>
                             <div class="cols-sm-10">
                                 <div class="input-group">
-                                    <asp:TextBox ID="txtPassword" type="password" CssClass="form-control" placeholder="Password" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="txtPassword" type="password" CssClass="form-control" placeholder="Password" runat="server" onkeyup="javascript:validatePassword()"></asp:TextBox>
                                 </div>
                             </div>
                         </div>
