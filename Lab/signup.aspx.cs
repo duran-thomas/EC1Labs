@@ -5,24 +5,46 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+
+
 namespace Lab
 {
     public partial class WebForm5 : System.Web.UI.Page
     {
+
+        MySql.Data.MySqlClient.MySqlConnection conn;
+        MySql.Data.MySqlClient.MySqlCommand cmd;
+        String query;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            Session["fName"] = txtFirstName.Text;
-            Session["lName"] = txtLastName.Text;
-            Session["email"] = txtEmail.Text;
-            Session["DoB"] = txtDateOfBirth.Text;
-            Session["phoneNumber"] = txtPhoneNumber;
-            Session["password"] = txtPassword.Text;
+            register();
+
             Response.Redirect("index.aspx");
+        }
+
+        private void register()
+        {
+            String connString = System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
+
+            conn = new MySql.Data.MySqlClient.MySqlConnection(connString);
+
+            conn.Open();
+            query = "INSERT INTO ec_labs.user (username, firstname, lastname, telephone, dob, password, role) " +
+                "VALUES ('" + txtEmail.Text + "','" + txtFirstName.Text + "','" + txtLastName.Text + "','" + txtPhoneNumber.Text +
+                "','" + txtDateOfBirth.Text + "','" + txtPassword.Text + "','customer');";
+
+            cmd = new MySql.Data.MySqlClient.MySqlCommand(query, conn);
+
+            cmd.ExecuteReader();
+
+            conn.Close();
         }
     }
 }

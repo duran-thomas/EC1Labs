@@ -151,7 +151,7 @@
                         </div>
 
                         <div class="form-group ">
-                            <asp:Button ID="btnSubmit" runat="server" CssClass="form-control btn btn-primary" Text="Submit" OnClick="btnSubmit_Click" />
+                            <asp:Button ID="btnSubmit" runat="server" Text="Submit" CssClass="btn btn-primary" OnClick="btnSubmit_Click" />
                         </div>
 
                     </div>
@@ -161,7 +161,8 @@
 
             <div class="col-md-5">
                 <div class="card">
-                    <div class="card-header">Error Summary</div>
+                    <div class="card-header">Error Summary
+                    </div>
                     <div class="card-body">
                         <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
                     </div>
