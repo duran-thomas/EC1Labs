@@ -28,27 +28,6 @@
         function hideURLbar() {
             window.scrollTo(0, 1);
         }
-
-        function customerLogin() {
-            document.getElementById("orderHistory").style.display = "block";
-            document.getElementById("logout").style.display = "block";
-            document.getElementById("cart").style.display = "block";
-            document.getElementById("login").style.display = "none";
-        }
-        function adminLogin() {
-            document.getElementById("manageProduct").style.display = "block";
-            document.getElementById("manageUser").style.display = "block";
-            document.getElementById("logout").style.display = "block";
-            document.getElementById("login").style.display = "none";
-        }
-        function indexPage() {
-            document.getElementById("manageProduct").style.display = "none";
-            document.getElementById("orderHistory").style.display = "none";
-            document.getElementById("manageUser").style.display = "none";
-            document.getElementById("logout").style.display = "none";
-            document.getElementById("cart").style.display = "none";
-            document.getElementById("login").style.display = "block";
-        }
     </script>
 </head>
 <body>
@@ -68,28 +47,54 @@
                             <li id="product" class="nav-item"><a href="products.aspx" class="nav-link">Products</a></li>
                             <li id="about" class="nav-item"><a href="about.aspx" class="nav-link">About</a></li>
                             <li id="contact" class="nav-item"><a href="contact.aspx" class="nav-link">Contact Us</a></li>
-                            <li id="cart"  style="display:none" class="nav-item"><a href="cart.aspx" class="nav-link">Cart</a></li>
-                            <li id="orderHistory" style="display:none" class="nav-item"><a href="orderHistory.aspx" class="nav-link" >Order History</a></li>
-                            <li id="manageProduct" style="display:none" class="nav-item"><a href="manageProduct.aspx" class="nav-link" >Manage Products</a></li>
-                            <li id="manageUser" style="display:none" class="nav-item"><a href="manageUser.aspx" class="nav-link" >Manage Users</a></li>
+                            <% if ((String)Session["rights"] == "admin")
+                                {%>
+                            <li id="manageProduct" class="nav-item"><a href="#" class="nav-link">Manage Products</a></li>
+                            <li id="manageUser" class="nav-item"><a href="#" class="nav-link">Manage User</a></li>
+                            <%}
+                            else if ((String)Session["rights"] == "customer")
+                            {%>
+                            <li id="cart" class="nav-item"><a href="#" class="nav-link">Cart</a></li>
+                            <li id="history" class="nav-item"><a href="#" class="nav-link">History</a></li>
+                            <% }%>
                         </ul>
-                        <ul id="login" class="nav navbar-nav flex-row justify-content-between ml-auto">
-                            <li class="nav-item order-2 order-md-1"><a href="#" class="nav-link" title="settings"><i></i></a></li>
+
+                        <ul class="nav navbar-nav flex-row justify-content-between ml-auto">
+
+                            <% if ((String)Session["rights"] == "admin" | (String)Session["rights"] == "customer")
+                                {%>
+
                             <li class="dropdown order-1">
+                                <button type="button" id="dropdownMenu2" data-toggle="dropdown" class="btn btn-outline-secondary dropdown-toggle">Hello, <%: Session["firstName"] %><span class="caret"></span></button>
+                                <ul class="dropdown-menu dropdown-menu-right mt-2">
+                                    <li class="px-3 py-2">
+                                        <form class="form" role="form">
+                                            <div class="form-group">
+                                                <asp:Button ID="btnLogout" type="submit" CssClass="btn btn-primary btn-block" runat="server" Text="Logout" OnClick="logOut_click" />
+                                            </div>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <%}
+                                else
+                                {%>
+                                    <li class="dropdown order-1">
                                 <button type="button" id="dropdownMenu1" data-toggle="dropdown" class="btn btn-outline-secondary dropdown-toggle">Login/Register <span class="caret"></span></button>
                                 <ul class="dropdown-menu dropdown-menu-right mt-2">
                                     <li class="px-3 py-2">
                                         <form class="form" role="form">
                                             <div class="form-group">
-                                                
-                                                <asp:TextBox ID="txtLoginEmail" runat="server" placeholder="Email" cssClass="form-control form-control-sm" type="text"></asp:TextBox>
+
+                                                <asp:TextBox ID="txtLoginEmail" runat="server" placeholder="Email" CssClass="form-control form-control-sm" type="text"></asp:TextBox>
                                             </div>
                                             <div class="form-group">
-                                                
-                                                <asp:TextBox ID="txtLoginPassword" runat="server" placeholder="Password" cssClass="form-control form-control-sm" type="password"></asp:TextBox>
+
+                                                <asp:TextBox ID="txtLoginPassword" runat="server" placeholder="Password" CssClass="form-control form-control-sm" type="password"></asp:TextBox>
                                             </div>
                                             <div class="form-group">
-                                                <asp:Button ID="btnLogin" type="submit" cssClass="btn btn-primary btn-block"  runat="server" Text="Login" OnClick="submitEventMethod" />
+                                                <asp:Button ID="btnLogin" type="submit" CssClass="btn btn-primary btn-block" runat="server" Text="Login" OnClick="submitEventMethod" />
                                             </div>
                                             <div class="form-group text-center">
                                                 <small><a href="signup.aspx">Register</a></small>
@@ -98,20 +103,9 @@
                                     </li>
                                 </ul>
                             </li>
+                            <% }%>
                         </ul>
-                        <ul id="logout" style="display:none" class="nav navbar-nav flex-row justify-content-between ml-auto">
-                            <li class="dropdown order-1">
-                                <button type="button" id="dropdownMenu2" data-toggle="dropdown" class="btn btn-outline-secondary dropdown-toggle">Hello, <%: Session["firstName"] %><span class="caret"></span></button>
-                                <ul class="dropdown-menu dropdown-menu-right mt-2">
-                                    <li class="px-3 py-2">
-                                        <form class="form" role="form">
-                                            <div class="form-group">
-                                                <asp:Button ID="btnLogout" type="submit" cssClass="btn btn-primary btn-block" runat="server" Text="Logout" OnClick="logOut_click"/>
-                                            </div>
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>                        </ul>
+
                     </div>
                 </div>
             </nav>

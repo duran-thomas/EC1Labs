@@ -5,10 +5,6 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
-
-
 namespace Lab
 {
     public partial class WebForm5 : System.Web.UI.Page
@@ -25,12 +21,13 @@ namespace Lab
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             register();
-
             Response.Redirect("index.aspx");
         }
 
         private void register()
         {
+
+
             String connString = System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
 
             conn = new MySql.Data.MySqlClient.MySqlConnection(connString);
@@ -43,7 +40,7 @@ namespace Lab
             cmd = new MySql.Data.MySqlClient.MySqlCommand(query, conn);
 
             cmd.ExecuteReader();
-
+            Session["rights"] = "customer";
             conn.Close();
         }
     }

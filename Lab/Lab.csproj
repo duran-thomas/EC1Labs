@@ -184,6 +184,7 @@
     <Content Include="css\style.css" />
     <Content Include="customerLogin.aspx" />
     <Content Include="adminLogin.aspx" />
+    <Content Include="userLoggedIn.aspx" />
     <EmbeddedResource Include="images\dotnet.svg" />
     <Content Include="images\angular-icon.svg" />
     <Content Include="images\bootstrap.svg" />
@@ -305,6 +306,14 @@
     </Compile>
     <Compile Include="adminLogin.aspx.designer.cs">
       <DependentUpon>adminLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Startup1.cs" />
+    <Compile Include="userLoggedIn.aspx.cs">
+      <DependentUpon>userLoggedIn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="userLoggedIn.aspx.designer.cs">
+      <DependentUpon>userLoggedIn.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

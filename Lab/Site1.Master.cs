@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+
 namespace Lab
 {
     public partial class Site1 : System.Web.UI.MasterPage
@@ -19,20 +20,14 @@ namespace Lab
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            string pagestatus = (String)Session["page"];
 
-            if (pagestatus == "index")
-            {
-                Page.ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript:indexPage(); ", true);
-            }
-            
-
+           
         }
 
         protected void logOut_click(object sender, EventArgs e)
         {
             Session["firstName"] = null;
-            Session["page"] = "index";
+            Session["rights"] = null;
             Session.Abandon();
             Response.BufferOutput = true;
             Response.Redirect("index.aspx");
@@ -40,6 +35,9 @@ namespace Lab
 
         protected void submitEventMethod(object sender, EventArgs e)
         {
+
+            //MySql 
+
             String connString = System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
             conn = new MySql.Data.MySqlClient.MySqlConnection(connString);
             conn.Open();
@@ -53,24 +51,29 @@ namespace Lab
             name = "";
             rights = "";
 
-            while(reader.HasRows && reader.Read())
+            while (reader.HasRows && reader.Read())
             {
                 name = reader.GetString(reader.GetOrdinal("firstname"));
                 rights = reader.GetString(reader.GetOrdinal("role"));
             }
 
+            Session["rights"] = rights;
+
             if (reader.HasRows)
             {
                 Session["firstName"] = name;
+
                 Response.BufferOutput = true;
-                if(rights.Equals("admin"))
+                if (rights.Equals("admin"))
                 {
                     Session["page"] = "admin";
-                    Response.Redirect("adminLogin.aspx", false);
-                }else if(rights.Equals("customer"))
+                    Response.Redirect("index.aspx");
+                    
+                }
+                else if (rights.Equals("customer"))
                 {
                     Session["page"] = "customer";
-                    Response.Redirect("customerLogin.aspx", false);
+                    Response.Redirect("index.aspx");
                 }
             }
             else

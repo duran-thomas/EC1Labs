@@ -11,6 +11,13 @@ namespace Lab
     { 
         protected void Page_Load(object sender, EventArgs e)
         {
+            string pagestatus = (String)Session["page"];
+
+            if (pagestatus == "index")
+            {
+                Page.ClientScript.RegisterStartupScript(GetType(), "Javascript", "javascript:indexPage(); ", true);
+            }
+            Console.WriteLine(pagestatus);
 
         }
 
