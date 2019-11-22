@@ -49,8 +49,8 @@
                             <li id="contact" class="nav-item"><a href="contact.aspx" class="nav-link">Contact Us</a></li>
                             <% if ((String)Session["rights"] == "admin")
                                 {%>
-                            <li id="manageProduct" class="nav-item"><a href="#" class="nav-link">Manage Products</a></li>
-                            <li id="manageUser" class="nav-item"><a href="#" class="nav-link">Manage User</a></li>
+                            <li id="manageProduct" class="nav-item"><a href="manageproduct.aspx" class="nav-link">Manage Products</a></li>
+                            <li id="manageUser" class="nav-item"><a href="manageuser.aspx" class="nav-link">Manage User</a></li>
                             <%}
                             else if ((String)Session["rights"] == "customer")
                             {%>

@@ -2,12 +2,12 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <script type="text/javascript">
+
         function ValidateDOB(sender, args) {
             //Get the date from the TextBox.
             var dateString = document.getElementById(sender.controltovalidate).value;
             var regex = /(((0|1)[0-9]|2[0-9]|3[0-1])\/(0[1-9]|1[0-2])\/((19|20)\d\d))$/;
 
-            //Check whether valid dd/MM/yyyy Date Format.
             if (regex.test(dateString)) {
                 var parts = dateString.split("/");
                 var dtDOB = new Date(parts[1] + "/" + parts[0] + "/" + parts[2]);
@@ -20,13 +20,12 @@
 
                 if (dtCurrent.getFullYear() - dtDOB.getFullYear() == 18) {
 
-                    //CD: 11/06/2018 and DB: 15/07/2000. Will turned 18 on 15/07/2018.
                     if (dtCurrent.getMonth() < dtDOB.getMonth()) {
                         args.IsValid = false;
                         return;
                     }
                     if (dtCurrent.getMonth() == dtDOB.getMonth()) {
-                        //CD: 11/06/2018 and DB: 15/06/2000. Will turned 18 on 15/06/2018.
+
                         if (dtCurrent.getDate() < dtDOB.getDate()) {
                             args.IsValid = false;
                             return;
@@ -39,6 +38,7 @@
                 args.IsValid = false;
             }
         }
+
         function validatePassword() {
             var str = document.getElementById('<%=txtPassword.ClientID %>').value;
 
@@ -109,7 +109,7 @@
                         </div>
 
                         <div class="form-group">
-                            <asp:Label IsD="lblDateOfBirth" runat="server" Text="Date Of Birth"></asp:Label>
+                            <asp:Label IsD="lblDateOfBirth" runat="server" Text="Date Of Birth (DD/MM/YYYY)"></asp:Label>
                             <asp:CustomValidator ID="CustomValidator1" CssClass="text-danger" runat="server" ErrorMessage="" ControlToValidate="txtDateOfBirth" ClientValidationFunction="ValidateDOB"></asp:CustomValidator>
                             <div class="cols-sm-10">
                                 <div class="input-group">
@@ -161,7 +161,8 @@
 
             <div class="col-md-5">
                 <div class="card">
-                    <div class="card-header">Error Summary
+                    <div class="card-header">
+                        Error Summary
                     </div>
                     <div class="card-body">
                         <asp:ValidationSummary ID="ValidationSummary1" runat="server" />
@@ -170,5 +171,4 @@
             </div>
         </div>
     </div>
-
 </asp:Content>

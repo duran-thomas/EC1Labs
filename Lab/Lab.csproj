@@ -182,9 +182,8 @@
     <Content Include="css\css.css" />
     <Content Include="css\font-awesome.css" />
     <Content Include="css\style.css" />
-    <Content Include="customerLogin.aspx" />
-    <Content Include="adminLogin.aspx" />
-    <Content Include="userLoggedIn.aspx" />
+    <Content Include="manageuser.aspx" />
+    <Content Include="manageproduct.aspx" />
     <EmbeddedResource Include="images\dotnet.svg" />
     <Content Include="images\angular-icon.svg" />
     <Content Include="images\bootstrap.svg" />
@@ -243,6 +242,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="manageuser.aspx.cs">
+      <DependentUpon>manageuser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="manageuser.aspx.designer.cs">
+      <DependentUpon>manageuser.aspx</DependentUpon>
+    </Compile>
     <Compile Include="products1.aspx.cs">
       <DependentUpon>products1.txt</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -293,27 +299,12 @@
     <Compile Include="signup.aspx.designer.cs">
       <DependentUpon>signup.aspx</DependentUpon>
     </Compile>
-    <Compile Include="customerLogin.aspx.cs">
-      <DependentUpon>customerLogin.aspx</DependentUpon>
+    <Compile Include="manageproduct.aspx.cs">
+      <DependentUpon>manageproduct.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="customerLogin.aspx.designer.cs">
-      <DependentUpon>customerLogin.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="adminLogin.aspx.cs">
-      <DependentUpon>adminLogin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="adminLogin.aspx.designer.cs">
-      <DependentUpon>adminLogin.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Startup1.cs" />
-    <Compile Include="userLoggedIn.aspx.cs">
-      <DependentUpon>userLoggedIn.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="userLoggedIn.aspx.designer.cs">
-      <DependentUpon>userLoggedIn.aspx</DependentUpon>
+    <Compile Include="manageproduct.aspx.designer.cs">
+      <DependentUpon>manageproduct.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
