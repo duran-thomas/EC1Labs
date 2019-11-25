@@ -73,6 +73,7 @@ namespace Lab
             sqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
             DataTable dtbl = new DataTable();
             sqlDa.Fill(dtbl);
+            Console.WriteLine();
             gvProduct.DataSource = dtbl;
             gvProduct.DataBind();
         }

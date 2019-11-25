@@ -21,6 +21,7 @@ namespace Lab
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            Clear();
             GridFill();
         }
 

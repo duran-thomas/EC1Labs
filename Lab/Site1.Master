@@ -54,8 +54,8 @@
                             <%}
                             else if ((String)Session["rights"] == "customer")
                             {%>
-                            <li id="cart" class="nav-item"><a href="#" class="nav-link">Cart</a></li>
-                            <li id="history" class="nav-item"><a href="#" class="nav-link">History</a></li>
+                            <li id="cart" class="nav-item"><a href="cart.aspx" class="nav-link">Cart</a></li>
+                            <li id="history" class="nav-item"><a href="history.aspx" class="nav-link">History</a></li>
                             <% }%>
                         </ul>
 

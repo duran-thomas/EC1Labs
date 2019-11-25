@@ -184,6 +184,8 @@
     <Content Include="css\style.css" />
     <Content Include="manageuser.aspx" />
     <Content Include="manageproduct.aspx" />
+    <Content Include="cart.aspx" />
+    <Content Include="history.aspx" />
     <EmbeddedResource Include="images\dotnet.svg" />
     <Content Include="images\angular-icon.svg" />
     <Content Include="images\bootstrap.svg" />
@@ -197,7 +199,6 @@
     <Content Include="jquery-2.2.3.js" />
     <Content Include="jquery.livequery.js" />
     <Content Include="minicart.min.js" />
-    <Content Include="products1.txt" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -249,13 +250,6 @@
     <Compile Include="manageuser.aspx.designer.cs">
       <DependentUpon>manageuser.aspx</DependentUpon>
     </Compile>
-    <Compile Include="products1.aspx.cs">
-      <DependentUpon>products1.txt</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="products1.aspx.designer.cs">
-      <DependentUpon>products1.txt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site1.Master.cs">
       <DependentUpon>Site1.Master</DependentUpon>
@@ -305,6 +299,20 @@
     </Compile>
     <Compile Include="manageproduct.aspx.designer.cs">
       <DependentUpon>manageproduct.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="cart.aspx.cs">
+      <DependentUpon>cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="cart.aspx.designer.cs">
+      <DependentUpon>cart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="history.aspx.cs">
+      <DependentUpon>history.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="history.aspx.designer.cs">
+      <DependentUpon>history.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

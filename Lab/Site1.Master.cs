@@ -17,6 +17,7 @@ namespace Lab
         String name;
         String rights;
         String query;
+        String username;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -50,11 +51,13 @@ namespace Lab
 
             name = "";
             rights = "";
+            username = "";
 
             while (reader.HasRows && reader.Read())
             {
                 name = reader.GetString(reader.GetOrdinal("firstname"));
                 rights = reader.GetString(reader.GetOrdinal("role"));
+                username = reader.GetString(reader.GetOrdinal("username"));
             }
 
             Session["rights"] = rights;
@@ -62,6 +65,7 @@ namespace Lab
             if (reader.HasRows)
             {
                 Session["firstName"] = name;
+                Session["username"] = username;
 
                 Response.BufferOutput = true;
                 if (rights.Equals("admin"))

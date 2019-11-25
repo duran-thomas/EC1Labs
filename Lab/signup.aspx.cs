@@ -26,8 +26,6 @@ namespace Lab
 
         private void register()
         {
-
-
             String connString = System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
 
             conn = new MySql.Data.MySqlClient.MySqlConnection(connString);
@@ -41,6 +39,8 @@ namespace Lab
 
             cmd.ExecuteReader();
             Session["rights"] = "customer";
+            Session["firstName"] = txtFirstName.Text;
+            Session["username"] = txtEmail.Text;
             conn.Close();
         }
     }
