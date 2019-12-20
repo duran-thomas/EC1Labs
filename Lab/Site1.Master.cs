@@ -4,15 +4,16 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using MySql.Data.MySqlClient;
 
 
 namespace Lab
 {
     public partial class Site1 : System.Web.UI.MasterPage
     {
-        MySql.Data.MySqlClient.MySqlConnection conn;
-        MySql.Data.MySqlClient.MySqlCommand cmd;
-        MySql.Data.MySqlClient.MySqlDataReader reader;
+        MySqlConnection conn;
+        MySqlCommand cmd;
+        MySqlDataReader reader;
 
         String name;
         String rights;

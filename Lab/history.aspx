@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="history.aspx.cs" Inherits="Lab.WebForm9" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeFile="history.aspx.cs" Inherits="Lab.WebForm9" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -12,6 +12,7 @@
                 <asp:BoundField DataField="product" HeaderText="Name" />
                 <asp:BoundField DataField="quantity" HeaderText="Quantity"/>
                 <asp:BoundField DataField="price" HeaderText="Price"/>
+                <asp:BoundField DataField="datepurchased" HeaderText="Date"/>
             </Columns>
         </asp:GridView>
     </div>

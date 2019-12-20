@@ -34,7 +34,7 @@ namespace Lab
             conn.Open();
             MySqlCommand cmd = new MySqlCommand("UserAddOrEdit", conn);
 
-            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("_username", txtEmail.Text.Trim());
             cmd.Parameters.AddWithValue("_firstname", txtFirstName.Text.Trim());
             cmd.Parameters.AddWithValue("_lastname", txtLastName.Text.Trim());

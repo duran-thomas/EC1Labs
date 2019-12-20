@@ -26,7 +26,9 @@ namespace Lab
             conn = new MySqlConnection(connString);
 
             conn.Open();
+#pragma warning disable IDE0067 // Dispose objects before losing scope
             MySqlDataAdapter sqlDa = new MySqlDataAdapter("ProductViewAll", conn);
+#pragma warning restore IDE0067 // Dispose objects before losing scope
             sqlDa.SelectCommand.CommandType = CommandType.StoredProcedure;
             DataTable dtbl = new DataTable();
             sqlDa.Fill(dtbl);
@@ -41,21 +43,21 @@ namespace Lab
             public string name;
         }
 
+
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            String product = GridView1.Rows[1].Cells[0].Text;
-            String price = GridView1.Rows[1].Cells[2].Text;
+            String product = GridView1.Rows[0].Cells[1].Text;
+            String price = GridView1.Rows[0].Cells[3].Text;
 
-            //String name = Session["username"].ToString();
 
             String connString = System.Configuration.ConfigurationManager.ConnectionStrings["DefaultConnection"].ToString();
 
             conn = new MySqlConnection(connString);
 
             conn.Open();
-            String query = "INSERT INTO ec_labs.cart (username, product, quantity, price, status) " +
-                "VALUES ('duranthomas95@gmail.com'," + product + "," + 1 + "," + price + ",'unpurchased');";
+            String query = "INSERT INTO ec_labs.cart (username, product, quantity, price) " +
+                "VALUES ('" + (String)Session["username"] + "','" + product + "','" + 1 + "','" + price + "');";
 
             MySqlCommand cmd = new MySqlCommand(query, conn);
 
